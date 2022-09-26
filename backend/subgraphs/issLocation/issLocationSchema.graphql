@@ -1,0 +1,17 @@
+extend schema
+    @link(url: "https://specs.apollo.dev/federation/v2.0",
+          import: ["@key", "@shareable"])
+
+  type Query {
+    issPos: [LatLon]
+  }
+
+  type LatLon @key(fields: "ID") {
+    ID: ID!
+    iss_position: Iss_position
+    timestamp: Int!
+  }
+  type Iss_position {
+      latitude: String!
+      longitude: String!
+  }

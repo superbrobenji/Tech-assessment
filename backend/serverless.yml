@@ -1,0 +1,40 @@
+# serverless.yml
+
+service: Naked-assessment
+provider:
+  name: aws
+  runtime: nodejs16.x
+functions:
+  supergrapgh:
+    handler: index.supergraphHandler
+    events:
+    - http:
+        path: /api
+        method: post
+        cors: true
+    - http:
+        path: /api
+        method: get
+        cors: true
+  iss_possition:
+    handler: index.issPosHandler
+    events:
+    - http:
+        path: /iss_position
+        method: post
+        cors: true
+    - http:
+        path: /iss_position
+        method: get
+        cors: true
+  issLatLonFetch:
+    handler: index.issLatLonFetch
+    events:
+    - http:
+        path: /iss_fetch_latlon
+        method: post
+        cors: true
+    - http:
+        path: /iss_fetch_latlon
+        method: get
+        cors: true
